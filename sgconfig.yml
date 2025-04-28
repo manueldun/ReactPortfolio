@@ -1,0 +1,6 @@
+ruleDirs:
+- /home/manuel/projects/my-react-app/rules
+testConfigs:
+- testDir: /home/manuel/projects/my-react-app/rule-tests
+utilDirs:
+- /home/manuel/projects/my-react-app/utils
