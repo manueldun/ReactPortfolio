@@ -1,16 +1,40 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PortfolioBar from "./PortfolioBar/PortfolioBar.jsx";
 import Calculator from "./Calculator/Calculator.jsx";
-import ExcerciseLog from "./Exercise-Log/ExerciseLog.jsx";
+import "./App.css";
 
 function App() {
-  return (
-    <>
-      <PortfolioBar />
-      <Calculator />
-      <ExerciseLog />
-    </>
-  );
+  const [currentPage, setcurrentPage] = useState("introPage");
+
+  function handleSelect(selection) {
+    switch (selection) {
+      case "calculatorSelector":
+        setcurrentPage("Calculator");
+        break;
+      case "exerciseLogSelector":
+        console.log('setcurrentPage("excerciseLog");');
+        break;
+      case "restaurantSelector":
+        console.log('setcurrentPage("Restaurant");');
+        break;
+
+      default:
+        break;
+    }
+  }
+  let portfolio = <PortfolioBar onSelection={handleSelect} />;
+  portfolio = <PortfolioBar onSelection={handleSelect} />;
+  switch (currentPage) {
+    case "introPage":
+      portfolio = <PortfolioBar onSelection={handleSelect} />;
+      break;
+    case "Calculator":
+      portfolio = <Calculator />;
+    default:
+      break;
+  }
+
+  return portfolio;
 }
 
 export default App;
