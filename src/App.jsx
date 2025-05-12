@@ -17,7 +17,8 @@ function App() {
       case "restaurantSelector":
         console.log('setcurrentPage("Restaurant");');
         break;
-
+      case "selectionPage":
+        setcurrentPage("introPage");
       default:
         break;
     }
@@ -29,7 +30,7 @@ function App() {
       portfolio = <PortfolioBar onSelection={handleSelect} />;
       break;
     case "Calculator":
-      portfolio = <Calculator />;
+      portfolio = <Calculator onSelection={handleSelect}/>;
     default:
       break;
   }

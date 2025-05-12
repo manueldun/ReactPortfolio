@@ -28,6 +28,7 @@
   cursor: pointer;
   animation-name: intro;
   animation-duration: 0.9s;
+  transition-timing-function: ease-out;
 }
 
 .selectorButton:hover {

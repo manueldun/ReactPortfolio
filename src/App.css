@@ -5,3 +5,38 @@
 body {
   margin: 0px;
 }
+
+@keyframes backButtonKeyframes {
+  from {
+    transform: rotateY(90deg);
+  }
+
+  to {
+    transform: rotateY(0deg);
+  }
+}
+
+#backButton {
+  position: absolute;
+  background-color: #413bab;
+  border-radius: 20px;
+  padding: 10px;
+  left: 80vw;
+  top: 70vh;
+  animation-name: backButtonKeyframes;
+  animation-duration: 0.9s;
+  transition-timing-function: ease-out;
+  cursor: pointer;
+}
+
+#backButton:hover {
+  background-color: #292979;
+  transition-timing-function: ease-out;
+  transition-duration: 0.4s;
+}
+
+#backButton>img {
+  color: white;
+  width: 70px;
+  height: 70px;
+}

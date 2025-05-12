@@ -10,14 +10,19 @@ function PortfolioBar(props) {
       { transform: "rotateY(0deg)" },
       { transform: "rotateY(90deg)" },
     ];
-    const closeTiming = { duration: 900, iterations: 1, fill: "forwards" };
+    const closeTiming = {
+      easing: "ease-in",
+      duration: 900,
+      iterations: 1,
+      fill: "forwards",
+    };
     calculatorSelectorRef.current.animate(closeKeyframes, closeTiming);
     exerciseSelectorRef.current.animate(closeKeyframes, closeTiming);
     restaurantSelectorRef.current.animate(
       closeKeyframes,
       closeTiming,
     ).onfinish = (event) => {
-      restaurantSelectorRef.current.style.setProperty('opacity',"0%");
+      restaurantSelectorRef.current.style.setProperty("opacity", "0%");
       switch (e.target.id) {
         case "calculatorSelector":
           props.onSelection("calculatorSelector");

@@ -1,13 +1,29 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import BackButton from "../BackButton.jsx";
 import "./Calculator.css";
 
 function inputChangeHandle() {
   setInputValue();
 }
-function Calculator() {
+function Calculator(props) {
   const [currentValue, setCurrentValue] = useState(0);
   const [inputValue, setInputValue] = useState(0);
   const [currentOp, setCurrentOp] = useState("=");
+  const calculatorWidgets = useRef(null);
+  useEffect(() => {
+    let delay = 0;
+    for (const child of calculatorWidgets.current.children) {
+      const appearKeyframe = [{ opacity: 0 }, { opacity: 1 }];
+      const closeTiming = {
+        duration: 500,
+        iterations: 1,
+        fill: "forwards",
+        delay: delay,
+      };
+      delay += 90;
+      child.animate(appearKeyframe, closeTiming);
+    }
+  }, []);
   function handleChange(e) {
     if (!isNaN(Number(e.target.value))) {
       setInputValue(Number(e.target.value));
@@ -94,69 +110,75 @@ function Calculator() {
       setInputValue(Number(inputValue + e.target.id));
     }
   }
+  const notesSpanish =
+    "Calculadora para demostrar funcionalidad simple de desarrollos en React.\n:width: :width: ,,";
   return (
-    <div id="calculator">
-      <div id="answer">Answer={currentValue}</div>
+    <div id="rootCalculator">
+      <div id="calculator" ref={calculatorWidgets}>
+        <div id="answer">Answer={currentValue}</div>
 
-      <input
-        id="input"
-        type="number"
-        value={inputValue}
-        onChange={handleChange}
-        onKeyDown={handleKeyDown}
-      />
-      <button onClick={handleClear} className="button">
-        C
-      </button>
-      <button onClick={handleDivide} className="button">
-        /
-      </button>
-      <button onClick={handleMultiply} className="button">
-        X
-      </button>
-      <button onClick={handleSubtract} className="button">
-        -
-      </button>
-      <button onClick={handleWriteInput} className="button" id="7">
-        7
-      </button>
-      <button onClick={handleWriteInput} className="button" id="8">
-        8
-      </button>
-      <button onClick={handleWriteInput} className="button" id="9">
-        9
-      </button>
-      <button onClick={handleAdd} className="button plus">
-        +
-      </button>
+        <input
+          id="input"
+          type="number"
+          value={inputValue}
+          onChange={handleChange}
+          onKeyDown={handleKeyDown}
+        />
+        <button onClick={handleClear} className="button">
+          C
+        </button>
+        <button onClick={handleDivide} className="button">
+          /
+        </button>
+        <button onClick={handleMultiply} className="button">
+          X
+        </button>
+        <button onClick={handleSubtract} className="button">
+          -
+        </button>
+        <button onClick={handleWriteInput} className="button" id="7">
+          7
+        </button>
+        <button onClick={handleWriteInput} className="button" id="8">
+          8
+        </button>
+        <button onClick={handleWriteInput} className="button" id="9">
+          9
+        </button>
+        <button onClick={handleAdd} className="button plus">
+          +
+        </button>
 
-      <button onClick={handleWriteInput} className="button" id="4">
-        4
-      </button>
-      <button onClick={handleWriteInput} className="button" id="5">
-        5
-      </button>
-      <button onClick={handleWriteInput} className="button" id="6">
-        6
-      </button>
+        <button onClick={handleWriteInput} className="button" id="4">
+          4
+        </button>
+        <button onClick={handleWriteInput} className="button" id="5">
+          5
+        </button>
+        <button onClick={handleWriteInput} className="button" id="6">
+          6
+        </button>
 
-      <button onClick={handleWriteInput} className="button" id="1">
-        1
-      </button>
-      <button onClick={handleWriteInput} className="button" id="2">
-        2
-      </button>
-      <button onClick={handleWriteInput} className="button" id="3">
-        3
-      </button>
-      <button onClick={handleEqual} className="equal button">
-        =
-      </button>
+        <button onClick={handleWriteInput} className="button" id="1">
+          1
+        </button>
+        <button onClick={handleWriteInput} className="button" id="2">
+          2
+        </button>
+        <button onClick={handleWriteInput} className="button" id="3">
+          3
+        </button>
+        <button onClick={handleEqual} className="equal button">
+          =
+        </button>
 
-      <button className="zero button">0</button>
-      <button onClick={handleWriteInput} className="button" id=".">
-        .
-      </button>
+        <button className="zero button">0</button>
+        <button onClick={handleWriteInput} className="button" id=".">
+          .
+        </button>
+      </div>
+      <div id="notes"></div>
+      <BackButton onSelection={props.onSelection}/>
     </div>
   );
 }
