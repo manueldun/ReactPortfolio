@@ -8,7 +8,8 @@ function BackButton(props) {
       id="backButton"
       onClick={(e) => {
         const goBackKeyFrames = [
-          { transform: "rotateY(0deg)", transform: "rotateY(90deg)" },
+          { transform: "rotateY(0deg)" },
+          { transform: "rotateY(90deg)" },
         ];
 
         const gobackTiming = {

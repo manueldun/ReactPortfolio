@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import PortfolioBar from "./PortfolioBar/PortfolioBar.jsx";
 import Calculator from "./Calculator/Calculator.jsx";
+import MovieBrowser from "./MovieBrowser/MovieBrowser.jsx"
 import "./App.css";
 
 function App() {
@@ -11,8 +12,8 @@ function App() {
       case "calculatorSelector":
         setcurrentPage("Calculator");
         break;
-      case "exerciseLogSelector":
-        console.log('setcurrentPage("excerciseLog");');
+      case "movieBrowserSelector":
+        setcurrentPage("MovieBrowser");
         break;
       case "restaurantSelector":
         console.log('setcurrentPage("Restaurant");');
@@ -24,13 +25,16 @@ function App() {
     }
   }
   let portfolio = <PortfolioBar onSelection={handleSelect} />;
-  portfolio = <PortfolioBar onSelection={handleSelect} />;
   switch (currentPage) {
     case "introPage":
       portfolio = <PortfolioBar onSelection={handleSelect} />;
       break;
     case "Calculator":
       portfolio = <Calculator onSelection={handleSelect}/>;
+      break;
+    case "MovieBrowser":
+      portfolio = <MovieBrowser />
+      break;
     default:
       break;
   }

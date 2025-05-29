@@ -27,8 +27,8 @@ function PortfolioBar(props) {
         case "calculatorSelector":
           props.onSelection("calculatorSelector");
           break;
-        case "exerciseLogSelector":
-          props.onSelection("exerciseLogSelector");
+        case "movieBrowserSelector":
+          props.onSelection("movieBrowserSelector");
           break;
         case "restaurantSelector":
           props.onSelection("restaurantSelector");
@@ -47,12 +47,12 @@ function PortfolioBar(props) {
         Calculator
       </li>
       <li
-        id="exerciseLogSelector"
+        id="movieBrowserSelector"
         className="selectorButton"
         onClick={handleClick}
         ref={exerciseSelectorRef}
       >
-        Exercice Log
+        Movie Browser
       </li>
       <li
         id="restaurantSelector"

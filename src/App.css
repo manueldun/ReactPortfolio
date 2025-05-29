@@ -1,10 +1,17 @@
-#root {
-  margin: 0px;
+html {
+  height: 100%;
 }
 
 body {
   margin: 0px;
+  height: 100%;
 }
+
+#root {
+  margin: 0px;
+  height: 100%;
+}
+
 
 @keyframes backButtonKeyframes {
   from {
@@ -21,8 +28,10 @@ body {
   background-color: #413bab;
   border-radius: 20px;
   padding: 10px;
-  left: 80vw;
-  top: 70vh;
+  width: 10vh;
+  height: 10vh;
+  right: 60px;
+  bottom: 50px;
   animation-name: backButtonKeyframes;
   animation-duration: 0.9s;
   transition-timing-function: ease-out;
@@ -37,6 +46,6 @@ body {
 
 #backButton>img {
   color: white;
-  width: 70px;
-  height: 70px;
+  width: 10vh;
+  height: 10vh;
 }
