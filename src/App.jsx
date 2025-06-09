@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import PortfolioBar from "./PortfolioBar/PortfolioBar.jsx";
 import Calculator from "./Calculator/Calculator.jsx";
 import MovieBrowser from "./MovieBrowser/MovieBrowser.jsx"
+import GourmetExpress from "./GourmetExpress/GourmetExpress.jsx";
 import "./App.css";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         break;
       case "restaurantSelector":
         console.log('setcurrentPage("Restaurant");');
+        setcurrentPage("GourmetExpress");
         break;
       case "selectionPage":
         setcurrentPage("introPage");
@@ -34,6 +36,9 @@ function App() {
       break;
     case "MovieBrowser":
       portfolio = <MovieBrowser />
+      break;
+    case "GourmetExpress":
+      portfolio = <GourmetExpress />
       break;
     default:
       break;

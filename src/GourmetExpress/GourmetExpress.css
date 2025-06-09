@@ -1,0 +1,42 @@
+#gourmetExpress {
+  background: #614313;
+  background: linear-gradient(45deg, rgba(97, 67, 19, 1) 0%, rgba(252, 187, 73, 1) 38%, rgba(252, 187, 73, 1) 61%, rgba(110, 72, 11, 1) 100%);
+  padding-top: 30px;
+  padding-left: 20px;
+}
+#gourmetExpress h1{
+  font-size: 2.5vw;
+}
+#gourmetExpress p{
+  font-size: 1.8vw;
+}
+
+#gourmetWelcome {
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  background-color: #fff;
+  padding: 70px;
+}
+
+#gourmetLogo {
+  width: 300px;
+  height: 160px;
+  margin: auto;
+  padding: 30px;
+}
+
+#gourmetText {
+  margin: auto;
+  padding: 30px;
+}
+
+#gourmetTitle {
+  color: #9d6e24;
+}
+
+#gourmetMenu {
+  height: 500px;
+}
