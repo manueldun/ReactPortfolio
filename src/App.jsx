@@ -17,7 +17,6 @@ function App() {
         setcurrentPage("MovieBrowser");
         break;
       case "restaurantSelector":
-        console.log('setcurrentPage("Restaurant");');
         setcurrentPage("GourmetExpress");
         break;
       case "selectionPage":

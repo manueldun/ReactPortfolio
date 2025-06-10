@@ -1,19 +1,40 @@
 import { useState, useRef, useEffect } from "react";
 import logo from "../assets/gourmet express croped.png";
-import "./GourmetExpress.css"
+import "./GourmetExpress.css";
 
 function GourmetExpress() {
+  function handleLoad(e) {
+    const closeKeyframes = [
+      { transform: "rotateY(90deg)" },
+      { transform: "rotateY(0deg)" },
+    ];
+    const closeTiming = {
+      easing: "ease-out",
+      duration: 500,
+      iterations: 1,
+      fill: "forwards",
+    };
+    e.target.animate(closeKeyframes, closeTiming);
+  }
   return (
     <div id="gourmetWelcome">
-      <img id="gourmetLogo" src={logo} width="609" height="319" />
+      <img
+        id="gourmetLogo"
+        src={logo}
+        width="609"
+        height="319"
+        onLoad={handleLoad}
+      />
       <div id="gourmetText">
         <h1 id="gourmetTitle">¡Bienvenido a Gourmet Express!</h1>
         <p>
-          En Gourmet Express, te traemos la excelencia culinaria directamente a
-          tu puerta. Olvídate de cocinar y disfruta de una selección gourmet de
-          platos preparados con ingredientes frescos y de alta calidad, listos
-          para deleitar tu paladar. Simplemente elige tus favoritos y deja que
-          la experiencia gourmet llegue a ti.
+          Esta es una simple demostración de un Restaurante de entrega de comida
+          a domicilio. Básicamente el usuario elije lo que platos quiere comprar
+          y se va agregando a la lista de pedidos. Una vez que el pedido está
+          listo se puede obtener los datos del cliente al darle click al botón
+          rojo arriba a la derecha.
+          <br />
+          Escrito completamente con React y css.
         </p>
       </div>
     </div>

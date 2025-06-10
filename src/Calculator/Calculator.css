@@ -63,6 +63,7 @@
   border-style: none;
   color: #324d3f;
   cursor: pointer;
+  transition-duration: 0.3s;
 }
 
 .button:hover {
