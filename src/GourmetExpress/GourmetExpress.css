@@ -101,6 +101,7 @@ button {
   margin: 12px;
   overflow: hidden;
   transform: scale(1) rotateY(90deg);
+  cursor: pointer;
 }
 
 @media (orientation: portrait) {

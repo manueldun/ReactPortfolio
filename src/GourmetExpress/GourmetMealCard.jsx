@@ -36,11 +36,11 @@ function GourmetMealCard(props) {
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       id="gourmetMealCard"
+      onClick={handleAddMeal}
     >
       <img src={props.image} height="100" width="100" />
       <h1 id="gourmetMealTitle">{props.name}</h1>
       <p>Price: {props.price}$</p>
-      <button onClick={handleAddMeal}>Agregar al pedido</button>
     </article>
   );
 }
