@@ -31,6 +31,8 @@ body {
   background-color: #413bab;
   border-radius: 20px;
   z-index: 3;
+  animation-name: backButtonKeyframes;
+  animation-duration: 0.9s;
 }
 #backButton {
   width: 10vh;
@@ -38,13 +40,11 @@ body {
   right: 60px;
   bottom: 50px;
   position: sticky;
-  animation-name: backButtonKeyframes;
-  animation-duration: 0.9s;
   transition-timing-function: ease-out;
   cursor: pointer;
 }
 
-#backButton:hover {
+#sticky:hover {
   background-color: #292979;
   transition-timing-function: ease-out;
   transition-duration: 0.4s;

@@ -3,9 +3,8 @@ import backIcon from "./assets/back-arrow-svgrepo-com.svg";
 function BackButton(props) {
   const backButtonRef = useRef(null);
   return (
-    <div id="sticky">
+    <div id="sticky" ref={backButtonRef}>
       <div
-        ref={backButtonRef}
         id="backButton"
         onClick={(e) => {
           const goBackKeyFrames = [
