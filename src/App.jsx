@@ -7,9 +7,6 @@ import "./App.css";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("introPage");
-  function handleGoingBack() {
-    setCurrentPage("introPage");
-  }
   function handleSelect(selection) {
     switch (selection) {
       case "calculatorSelector":
@@ -26,6 +23,9 @@ function App() {
       default:
         break;
     }
+  }
+  function handleGoingBack() {
+    setCurrentPage("introPage");
   }
   let portfolio = <PortfolioBar onSelection={handleSelect} />;
   switch (currentPage) {

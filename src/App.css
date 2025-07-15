@@ -21,7 +21,8 @@ body {
     transform: rotateY(0deg);
   }
 }
-#sticky{
+
+#sticky {
   position: sticky;
   left: 90vw;
   bottom: 50px;
@@ -34,6 +35,14 @@ body {
   animation-name: backButtonKeyframes;
   animation-duration: 0.9s;
 }
+
+#backButtonDiv {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 3;
+}
+
 #backButton {
   width: 10vh;
   height: 10vh;
@@ -50,7 +59,7 @@ body {
   transition-duration: 0.4s;
 }
 
-#backButton > img {
+#backButton>img {
   color: white;
   width: 10vh;
   height: 10vh;
