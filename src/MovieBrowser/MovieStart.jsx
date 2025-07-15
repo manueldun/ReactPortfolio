@@ -19,6 +19,7 @@ function MovieStart(props) {
         };
     }
   }
+  let appearAnimation = new Animation();
   useEffect(() => {
     const appearKeyframes = [{ opacity: "0.0" }, { opacity: "1.0" }];
     const appearTiming = {
@@ -27,7 +28,13 @@ function MovieStart(props) {
       iterations: 1,
       fill: "forwards",
     };
-    movieStartRef.current.animate(appearKeyframes, appearTiming);
+    appearAnimation = movieStartRef.current.animate(
+      appearKeyframes,
+      appearTiming,
+    );
+    return () => {
+      appearAnimation.cancel();
+    };
   }, []);
 
   return (
@@ -48,6 +55,13 @@ function MovieStart(props) {
         Buscar Película
       </button>
       <p>Busca peliculas desde la API pública IMDbOT.</p>
+      {props.error && (
+        <p>
+          <span id="error">
+            Parece que hubo un problema, intentelo nuevamente.
+          </span>
+        </p>
+      )}
     </div>
   );
 }

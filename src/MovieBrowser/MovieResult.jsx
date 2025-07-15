@@ -41,12 +41,13 @@ function MovieResult(props) {
                       ) {
                         return false;
                       } else {
-                        return true;
+                        return accumulator;
                       }
                     },
                     true,
                   );
                   if (areImgsComplete) {
+                    console.log("all loaded");
                     setIsLoading(false);
                   }
                 }}

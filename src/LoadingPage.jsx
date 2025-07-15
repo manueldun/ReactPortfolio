@@ -2,17 +2,19 @@ import { useState, useRef, useEffect } from "react";
 import "./Loading.css";
 function LoadingPage(props) {
   const loadingRef = useRef(null);
+  const [endLoading, setEndLoading] = useState(false);
   const introAnimationEndRef = useRef(false);
   const introAnimationStartRef = useRef(false);
   const loaderRef = useRef(null);
   useEffect(() => {
     let appearAnimation = new Animation();
     if (props.visible && !introAnimationStartRef.current) {
+      console.log("animate");
       introAnimationStartRef.current = true;
       const appearFrames = [{ opacity: "0.0" }, { opacity: "1.0" }];
       const appearTiming = {
         easing: "ease-out",
-        duration: 1000,
+        duration: 500,
         iterations: 1,
         fill: "forwards",
       };
@@ -22,12 +24,12 @@ function LoadingPage(props) {
         introAnimationEndRef.current = true;
       };
     } else {
-      loaderRef.current.style = { opacity: "0.0" };
+      introAnimationEndRef.current = true;
     }
 
     return () => {
-      introAnimationEndRef.current = true;
-      appearAnimation.cancel();
+      if (!props.visible && introAnimationStartRef.current) {
+      }
     };
   }, [props.visible]);
 
@@ -38,24 +40,26 @@ function LoadingPage(props) {
       const vanishframes = [{ opacity: "1.0" }, { opacity: "0.0" }];
       const vanishtiming = {
         easing: "ease-out",
-        duration: 500,
+        duration: 1000,
         iterations: 1,
         fill: "forwards",
       };
       vanishAnimation = loadingRef.current.animate(vanishframes, vanishtiming);
 
       vanishAnimation.onfinish = () => {
-        loadingPage = null;
+        setEndLoading(true);
+        loadingRef.current.style.display = "none";
       };
     }
     return () => {
-      vanishAnimation.cancel();
+      setEndLoading(true);
     };
-  }, [props.visible, introAnimationEndRef.current]);
+  }, [props.visible, introAnimationStartRef.current]);
 
   let loadingPage = (
     <div ref={loadingRef} id="loading">
       <div ref={loaderRef} className="loader"></div>
+      <h2>Loading Posters</h2>
     </div>
   );
   return loadingPage;
