@@ -15,7 +15,7 @@ function MovieStart(props) {
         type="text"
         placeholder="Ingrese texto para buscar."
       />
-      <button id="movieButton" onClick={props.onSearch}>
+      <button id="movieButton" onClick={handleSearch}>
         Buscar Película
       </button>
       <p>Busca peliculas desde la API pública IMDbOT.</p>
