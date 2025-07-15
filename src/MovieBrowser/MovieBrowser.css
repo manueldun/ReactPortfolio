@@ -8,6 +8,7 @@
   align-content: center;
   flex-wrap: wrap;
 }
+
 #movieStart {
   display: flex;
   flex-direction: column;
@@ -21,9 +22,9 @@
   color: #cebfe5;
 }
 
-#movieBrowser > h1,
-#movieBrowser > h2,
-#movieBrowser > p {
+#movieBrowser>h1,
+#movieBrowser>h2,
+#movieBrowser>p {
   text-align: center;
 }
 
@@ -34,12 +35,14 @@
   border-radius: 10px;
   border-style: solid;
 }
+
 #movieButton {
   width: fit-content;
   margin: 10px auto;
   color: #1e1827;
   padding: 9px;
 }
+
 #movieResult {
   display: flex;
   padding: 15px;
@@ -52,6 +55,7 @@
   align-content: center;
   justify-content: space-around;
 }
+
 .movieCard {
   border-style: solid;
   border-color: #000;
@@ -64,14 +68,18 @@
   color: #1e1827;
   background-color: #cebfe5;
 }
+
 .moviePoster {
-  height: 20em;
+  width: 100%;
+  aspect-ratio: auto;
 }
+
 #movieResultPage {
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto auto;
 }
+
 #movieInputResult {
   padding: 10px;
   margin: 20px;

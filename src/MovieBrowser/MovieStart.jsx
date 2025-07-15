@@ -3,11 +3,35 @@ import "./MovieBrowser.css";
 
 function MovieStart(props) {
   const movieInputRef = useRef(null);
+  const movieStartRef = useRef(null);
   function handleSearch(e) {
-    props.onSearch(movieInputRef.current.value);
+    if (movieInputRef.current.value !== "") {
+      const appearKeyframes = [{ opacity: "1.0" }, { opacity: "0.0" }];
+      const appearTiming = {
+        easing: "ease-out",
+        duration: 500,
+        iterations: 1,
+        fill: "forwards",
+      };
+      movieStartRef.current.animate(appearKeyframes, appearTiming).onfinish =
+        () => {
+          props.onSearch(movieInputRef.current.value);
+        };
+    }
   }
+  useEffect(() => {
+    const appearKeyframes = [{ opacity: "0.0" }, { opacity: "1.0" }];
+    const appearTiming = {
+      easing: "ease-out",
+      duration: 500,
+      iterations: 1,
+      fill: "forwards",
+    };
+    movieStartRef.current.animate(appearKeyframes, appearTiming);
+  }, []);
+
   return (
-    <div id="movieStart">
+    <div id="movieStart" ref={movieStartRef}>
       <h1>Buscador de películas</h1>
       <input
         id="movieInput"

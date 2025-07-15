@@ -1,0 +1,21 @@
+#loading {
+  position: fixed;
+  display: flex;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  background-color: #1e1827;
+}
+
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid #b7b3bd;
+  border-right-color: #3c2c55;
+  animation: l2 1s infinite linear;
+}
+@keyframes l2 {to{transform: rotate(1turn)}}

@@ -4,7 +4,13 @@ import "./MovieBrowser.css";
 function MovieCard(props) {
   return (
     <div className="movieCard">
-      <img className="moviePoster" src={props.data["#IMG_POSTER"]} />
+      <img
+        ref={props.ref}
+        id={props.id}
+        onLoad={props.onLoadImg}
+        className="moviePoster"
+        src={props.data["#IMG_POSTER"]}
+      />
       <h2>{props.data["#TITLE"]}</h2>
       <h3>Actors</h3>
       <p>{props.data["#ACTORS"]}</p>

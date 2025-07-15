@@ -1,35 +1,68 @@
 import { useState, useRef, useEffect } from "react";
 import MovieCard from "./MovieCard.jsx";
+import LoadingPage from "../LoadingPage.jsx";
 import "./MovieBrowser.css";
 
 function MovieResult(props) {
   const inputRef = useRef(null);
-  let id = 0;
-  for (let result of props.results) {
-    result.id = id;
-    id++;
+  const resultRef = useRef({});
+  const [isLoading, setIsLoading] = useState(true);
+  for (let i in props.results) {
+    props.results[i].id = i;
   }
-  const firstResults = props.results.slice(0, 6);
+  let firstResults = props.results.slice(0, 6);
   function handleEnter(e) {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && inputRef.current.value !== "") {
       props.onSearch(inputRef.current.value);
     }
   }
+
   return (
-    <div id="movieResultPage">
-      <input
-        id="movieInputResult"
-        type="text"
-        placeholder="Ingrese texto para buscar."
-        onKeyDown={handleEnter}
-        ref={inputRef}
-      />
-      <div id="movieResult">
-        {firstResults.map((item) => {
-          return <MovieCard key={item.id} data={item} />;
-        })}
+    <>
+      <LoadingPage visible={isLoading} />
+      <div id="movieResultPage">
+        <input
+          id="movieInputResult"
+          type="text"
+          placeholder="Ingrese texto para buscar."
+          onKeyDown={handleEnter}
+          ref={inputRef}
+        />
+        <div id="movieResult">
+          {firstResults.map((item) => {
+            return (
+              <MovieCard
+                onLoadImg={(e) => {
+                  const areImgsComplete = firstResults.reduce(
+                    (accumulator, currentValue) => {
+                      if (
+                        accumulator &&
+                        !resultRef.current[currentValue.id].complete
+                      ) {
+                        return false;
+                      } else {
+                        return true;
+                      }
+                    },
+                    true,
+                  );
+                  if (areImgsComplete) {
+                    setIsLoading(false);
+                  }
+                }}
+                onLoaded={() => {}}
+                key={item.id}
+                id={item.id}
+                data={item}
+                ref={(node) => {
+                  resultRef.current[item.id] = node;
+                }}
+              />
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 export default MovieResult;
