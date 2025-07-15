@@ -178,7 +178,10 @@ function Calculator(props) {
         </button>
       </div>
       <div id="notes"></div>
-      <BackButton onSelection={props.onSelection}/>
+      <BackButton
+        onSelection={props.onSelection}
+        onGoingBack={props.onGoingBack}
+      />
     </div>
   );
 }

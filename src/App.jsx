@@ -6,21 +6,23 @@ import GourmetExpress from "./GourmetExpress/GourmetExpress.jsx";
 import "./App.css";
 
 function App() {
-  const [currentPage, setcurrentPage] = useState("introPage");
-
+  const [currentPage, setCurrentPage] = useState("introPage");
+  function handleGoingBack() {
+    setCurrentPage("introPage");
+  }
   function handleSelect(selection) {
     switch (selection) {
       case "calculatorSelector":
-        setcurrentPage("Calculator");
+        setCurrentPage("Calculator");
         break;
       case "movieBrowserSelector":
-        setcurrentPage("MovieBrowser");
+        setCurrentPage("MovieBrowser");
         break;
       case "restaurantSelector":
-        setcurrentPage("GourmetExpress");
+        setCurrentPage("GourmetExpress");
         break;
       case "selectionPage":
-        setcurrentPage("introPage");
+        setCurrentPage("introPage");
       default:
         break;
     }
@@ -31,13 +33,25 @@ function App() {
       portfolio = <PortfolioBar onSelection={handleSelect} />;
       break;
     case "Calculator":
-      portfolio = <Calculator onSelection={handleSelect} />;
+      portfolio = (
+        <Calculator onSelection={handleSelect} onGoingBack={handleGoingBack} />
+      );
       break;
     case "MovieBrowser":
-      portfolio = <MovieBrowser onSelection={handleSelect} />;
+      portfolio = (
+        <MovieBrowser
+          onSelection={handleSelect}
+          onGoingBack={handleGoingBack}
+        />
+      );
       break;
     case "GourmetExpress":
-      portfolio = <GourmetExpress onSelection={handleSelect} />;
+      portfolio = (
+        <GourmetExpress
+          onSelection={handleSelect}
+          onGoingBack={handleGoingBack}
+        />
+      );
       break;
     default:
       break;

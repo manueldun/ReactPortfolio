@@ -5,7 +5,6 @@ import GourmetMenu from "./GourmetMenu.jsx";
 import GourmetOrder from "./GourmetOrder.jsx";
 import "./GourmetExpress.css";
 
-
 function GourmetExpress(props) {
   const [order, setOrder] = useState([]);
   function handelAddOrder(meal) {
@@ -14,12 +13,19 @@ function GourmetExpress(props) {
     delete newMeal["addOrder"];
     setOrder((m) => [...m, newMeal]);
   }
+  function goBack(e) {
+    props.onGoindBack();
+  }
+
   return (
     <div id="gourmetExpress">
       <GourmetOrder order={order} />
       <GourmetWelcome />
       <GourmetMenu addOrder={handelAddOrder} />
-      <BackButton onSelection={props.onSelection} />
+      <BackButton
+        onSelection={props.onSelection}
+        onGoingBack={props.onGoingBack}
+      />
     </div>
   );
 }

@@ -24,7 +24,10 @@ function MovieBrowser(props) {
   return (
     <div id="movieBrowser">
       {currentPage}
-      <BackButton onSelection={props.onSelection} />
+      <BackButton
+        onSelection={props.onSelection}
+        onGoingBack={props.onGoingBack}
+      />
     </div>
   );
 }

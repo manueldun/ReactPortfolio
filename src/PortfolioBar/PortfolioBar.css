@@ -6,15 +6,6 @@
   height: 100vh;
 }
 
-@keyframes intro {
-  from {
-    transform: rotateY(90deg);
-  }
-  to {
-    transform: rotateY(0deg);
-  }
-}
-
 .selectorButton {
   width: 100%;
   height: 100%;
@@ -26,9 +17,6 @@
   font-weight: bolder;
   font-size: 60px;
   cursor: pointer;
-  animation-name: intro;
-  animation-duration: 0.9s;
-  transition-timing-function: ease-out;
 }
 
 .selectorButton:hover {
