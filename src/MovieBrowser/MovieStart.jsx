@@ -14,6 +14,11 @@ function MovieStart(props) {
         ref={movieInputRef}
         type="text"
         placeholder="Ingrese texto para buscar."
+        onKeyPress={(event) => {
+          if (event.key === "Enter") {
+            handleSearch(event);
+          }
+        }}
       />
       <button id="movieButton" onClick={handleSearch}>
         Buscar Película
