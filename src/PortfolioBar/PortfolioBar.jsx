@@ -1,11 +1,19 @@
 import { useState, useRef, useEffect } from "react";
+import calculatorLogo from "../assets/Calculator.png";
+import movieLogo from "../assets/Movies.png";
+import restaurantLogo from "../assets/gourmet express croped.png";
 import "./PortfolioBar.css";
-const optionList = ["Calculator", "Movie Browser", "Restaurant"];
+const optionList = [
+  { name: "Calculator", img: calculatorLogo },
+  { name: "Movie Browser", img: movieLogo },
+  { name: "Restaurant", img: restaurantLogo },
+];
 function PortfolioBar(props) {
   const optionListRef = useRef({});
   const clickedRef = useRef(false);
   const finishAnimationRef = useRef(false);
   function handleClick(e) {
+    const currentOptionID = e.target.id;
     if (!clickedRef.current && finishAnimationRef.current) {
       clickedRef.current = true;
       const closeKeyframes = [
@@ -22,16 +30,16 @@ function PortfolioBar(props) {
       Promise.all(
         optionList.map((option) => {
           return new Promise((resolve, reject) => {
-            let currentOption = optionListRef.current[option];
+            let currentOption = optionListRef.current[option.name];
             currentOption.animate(closeKeyframes, closeTiming).onfinish = (
               event,
             ) => {
-              resolve();
+              resolve(currentOption);
             };
           });
         }),
       ).then((values) => {
-        switch (e.target.id) {
+        switch (currentOptionID) {
           case "Calculator":
             props.onSelection("calculatorSelector");
             break;
@@ -62,7 +70,7 @@ function PortfolioBar(props) {
       Promise.all(
         optionList.map((option) => {
           return new Promise((resolve, reject) => {
-            optionListRef.current[option].animate(
+            optionListRef.current[option.name].animate(
               goBackKeyFrames,
               goBackTiming,
             ).onfinish = () => {
@@ -83,13 +91,14 @@ function PortfolioBar(props) {
           <li
             className="selectorButton"
             ref={(node) => {
-              optionListRef.current[el] = node;
+              optionListRef.current[el.name] = node;
               return () => {};
             }}
-            key={el}
-            id={el}
+            key={el.name}
+            id={el.name}
           >
-            {el}
+            <img className="logo" src={el.img} />
+            <h1 className="title">{el.name}</h1>
           </li>
         );
       })}

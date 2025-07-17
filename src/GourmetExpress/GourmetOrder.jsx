@@ -20,7 +20,18 @@ function GourmetOrder(props) {
       <dialog id="checkoutDialog" ref={dialogRef}>
         <ul>
           {props.order.map((meal) => {
-            return <li key={meal.key}>{meal.name + ": " + meal.price + "$"}</li>;
+            return (
+              <li key={meal.key}>
+                {meal.name + ": " + meal.price + "$"},
+                <button
+                  onClick={() => {
+                    props.deleteMeal(meal.key);
+                  }}
+                >
+                  delete
+                </button>
+              </li>
+            );
           })}
         </ul>
         <p>total: {accumTotal}$</p>

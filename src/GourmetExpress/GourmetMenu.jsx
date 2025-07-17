@@ -9,10 +9,10 @@ import pizzaImage from "../assets/pizza.png";
 import filetminonImage from "../assets/filet mignon.png";
 const menuData = [
   { key: 0, name: "Linguini", image: linguiniImage, price: 10 },
-  { key: 1, name: "Hamburguesa", image: hamburguerImage, price: 10 },
-  { key: 2, name: "Pasta a la Carbonara", image: carbonaraImage, price: 10 },
-  { key: 3, name: "Pizza", image: pizzaImage, price: 10 },
-  { key: 4, name: "Filet Migñon", image: filetminonImage, price: 10 },
+  { key: 1, name: "Hamburger", image: hamburguerImage, price: 8 },
+  { key: 2, name: "Carbonara", image: carbonaraImage, price: 10 },
+  { key: 3, name: "Pizza", image: pizzaImage, price: 15 },
+  { key: 4, name: "Filet Mignon", image: filetminonImage, price: 20 },
 ];
 function GourmetMenu(props) {
   let triggerMenu = useRef(true);

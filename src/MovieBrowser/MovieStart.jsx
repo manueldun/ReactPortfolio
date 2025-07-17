@@ -32,7 +32,6 @@ function MovieStart(props) {
       appearKeyframes,
       appearTiming,
     ).onfinish = () => {
-      console.log({ movieStartRef });
       movieStartRef.current.style.opacity = "1.0";
       movieStartRef.current.getAnimations().map((animation) => {});
     };
@@ -41,7 +40,7 @@ function MovieStart(props) {
 
   return (
     <div id="movieStart" ref={movieStartRef}>
-      <h1>Buscador de películas</h1>
+      <h1>Full Text Movie Search Page</h1>
       <input
         id="movieInput"
         ref={movieInputRef}
@@ -54,13 +53,13 @@ function MovieStart(props) {
         }}
       />
       <button id="movieButton" onClick={handleSearch}>
-        Buscar Película
+        Search
       </button>
-      <p>Busca peliculas desde la API pública IMDbOT.</p>
+      <p>Searches for movies using the public API IMDbOT.</p>
       {props.error && (
         <p>
           <span id="error">
-            Parece que hubo un problema, intentelo nuevamente.
+            It seems there was a problem, please try again.
           </span>
         </p>
       )}

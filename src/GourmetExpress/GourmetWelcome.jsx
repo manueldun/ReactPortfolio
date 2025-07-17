@@ -26,15 +26,14 @@ function GourmetExpress() {
         onLoad={handleLoad}
       />
       <div id="gourmetText">
-        <h1 id="gourmetTitle">¡Bienvenido a Gourmet Express!</h1>
+        <h1 id="gourmetTitle">Welcome to Gourmet Express!</h1>
         <p>
-          Esta es una simple demostración de un Restaurante de entrega de comida
-          a domicilio. Básicamente el usuario elije lo que platos quiere comprar
-          y se va agregando a la lista de pedidos. Una vez que el pedido está
-          listo se puede obtener los datos del cliente al darle click al botón
-          rojo arriba a la derecha.
+          This is a demonstration of a food delivery restaurant. Basically the
+          user can choose which food to add to the order at the bottom of the
+          page. Once the order is finalized the red button at the top right of
+          the screen can be clicked to view the state of the order.
           <br />
-          Escrito completamente con React y css.
+          It is written completely on react and css.
         </p>
       </div>
     </div>

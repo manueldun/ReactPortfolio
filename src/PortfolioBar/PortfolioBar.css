@@ -4,15 +4,17 @@
   margin: 0px;
   padding: 0px;
   height: 100vh;
+
 }
+
 
 .selectorButton {
   width: 100%;
   height: 100%;
   list-style-type: none;
   text-align: center;
-  background-color: #413bab;
-  color: #ddd;
+  background-color: #cdcccc;
+  color: #202020;
   align-content: center;
   font-weight: bolder;
   font-size: 60px;
@@ -20,14 +22,35 @@
 }
 
 .selectorButton:hover {
-  background-color: #292979;
+  background-color: #202020;
+  color: #cdcccc;
   transition-timing-function: ease-out;
   transition-duration: 0.4s;
+}
+
+#portfolioPage h1 {
+  pointer-events: none;
+  font-size: 5vw;
+}
+
+#portfolioPage img {
+
+  pointer-events: none;
+  width: 28vw;
 }
 
 @media (orientation: landscape) {
   #portfolioPage {
     flex-direction: row;
+  }
+
+  #portfolioPage h1 {
+    font-size: 5vw;
+  }
+
+  #portfolioPage img {
+
+    width: 28vw;
   }
 }
 
@@ -35,18 +58,29 @@
   #portfolioPage {
     flex-direction: column;
   }
+
+  #portfolioPage h1 {
+    font-size: 8vw;
+  }
+
+  #portfolioPage img {
+    width: 10vh;
+    transform: scale(2);
+  }
 }
 
-@media (max-width: 470px){
-  .selectorButton{
+@media (max-width: 470px) {
+  .selectorButton {
     font-size: 40px;
   }
 }
-@media (max-width: 320px){
-  .selectorButton{
+
+@media (max-width: 320px) {
+  .selectorButton {
     font-size: 25px;
   }
 }
+
 @media (max-width:2560px) and (orientation: landscape) {
   .selectorButton {
     font-size: 55px;

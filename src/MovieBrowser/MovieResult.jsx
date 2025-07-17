@@ -21,17 +21,12 @@ function MovieResult(props) {
       props.results[i].id = i;
     }
     let firstResults = props.results.slice(0, 6);
-    console.log(firstResults, "set result");
-    console.log(result, "set result");
     setResult(firstResults);
     return () => {};
   }, [props.results]);
 
   function handleEnter(e) {
     if (e.code === "Enter" && e.target.value !== "") {
-      console.log("enter value", e.target.value);
-      console.log("loadingStarted", loadingStarted);
-      console.log("loadingEnded", loadingEnded);
       setLoadingTrigger((prev) => (prev + 1) % 2);
       setLoadingRestarted(true);
       setLoadingEnded(false);
@@ -39,14 +34,11 @@ function MovieResult(props) {
   }
   function handleLoaderDisapearEnded() {}
   function handleLoaderAppearEnded() {
-    console.log("loader ended");
     if (loadingStarted) {
       resultPageRef.current.style.opacity = "1.0";
     }
     if (loadingRestarted) {
       setLoadingRestarted(false);
-      console.log("loader ended restarted");
-      console.log(inputRef.current.value);
       props.onSearch(inputRef.current.value);
       resultPageRef.current.style.opacity = "1.0";
     }
@@ -88,7 +80,6 @@ function MovieResult(props) {
                     true,
                   );
                   if (areImgsComplete) {
-                    console.log("all loaded");
                     setLoadingEnded(true);
                   }
                 }}
