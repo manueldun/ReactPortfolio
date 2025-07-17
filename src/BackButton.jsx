@@ -26,6 +26,10 @@ function BackButton(props) {
                 goBackKeyFrames,
                 gobackTiming,
               ).onfinish = (e) => {
+                backButtonRef.current.style.transform = "rotateY(0deg)";
+                backButtonRef.current.getAnimations().map((animation) => {
+                  animation.cancel();
+                });
                 props.onGoingBack();
               };
             }

@@ -31,10 +31,12 @@ function MovieStart(props) {
     appearAnimation = movieStartRef.current.animate(
       appearKeyframes,
       appearTiming,
-    );
-    return () => {
-      appearAnimation.cancel();
+    ).onfinish = () => {
+      console.log({ movieStartRef });
+      movieStartRef.current.style.opacity = "1.0";
+      movieStartRef.current.getAnimations().map((animation) => {});
     };
+    return () => {};
   }, []);
 
   return (
@@ -47,7 +49,7 @@ function MovieStart(props) {
         placeholder="Ingrese texto para buscar."
         onKeyPress={(event) => {
           if (event.key === "Enter") {
-            handleSearch(event);
+            handleSearch(movieInputRef.current.value);
           }
         }}
       />

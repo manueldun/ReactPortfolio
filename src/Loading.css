@@ -10,6 +10,7 @@
   background-color: #1e1827;
   z-index: 3;
   flex-direction: column;
+  opacity: 0.0;
 }
 
 .loader {

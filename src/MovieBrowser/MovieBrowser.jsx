@@ -12,12 +12,14 @@ function MovieBrowser(props) {
       const queryUrl = new URL(
         "https://imdb.iamidiotareyoutoo.com/search?q=" + query,
       );
+      console.log({ query });
       const queryRequest = new Request(queryUrl);
       const response = await fetch(queryRequest);
       const responseReader = await response.body.getReader();
       const responseBuffer = await responseReader.read();
       const responseStr = new TextDecoder().decode(responseBuffer.value);
       const responseObj = JSON.parse(responseStr);
+      console.log(responseObj);
       setCurrentPage(
         <MovieResult
           results={responseObj.description}
